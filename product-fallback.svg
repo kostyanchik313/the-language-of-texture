@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 720" role="img" aria-label="Curated product placeholder">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8eee5"/>
+      <stop offset="1" stop-color="#e7cfc1"/>
+    </linearGradient>
+    <linearGradient id="vessel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#aa705d"/>
+      <stop offset="1" stop-color="#71463c"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="720" fill="url(#background)"/>
+  <circle cx="534" cy="112" r="126" fill="#fdf8f2" opacity=".74"/>
+  <path d="M0 594C142 540 229 578 320 630C412 682 524 684 640 602V720H0Z" fill="#d9ae91" opacity=".4"/>
+  <ellipse cx="320" cy="565" rx="158" ry="32" fill="#7d5146" opacity=".15"/>
+  <path d="M251 238C269 206 371 206 389 238L370 528C356 556 284 556 270 528Z" fill="url(#vessel)"/>
+  <path d="M270 270C299 288 341 288 370 270L365 329C337 344 303 344 275 329Z" fill="#f7e6d8" opacity=".76"/>
+  <path d="M320 230V108M320 156L253 102M320 178L389 112" stroke="#77856f" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="320" cy="98" r="26" fill="#8fa184"/>
+  <circle cx="246" cy="97" r="24" fill="#a7b69c"/>
+  <circle cx="398" cy="105" r="24" fill="#a7b69c"/>
+</svg>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Language of Texture</title>
+    <meta
+      name="description"
+      content="A curated collection of beauty, home, travel, fashion, and organization finds."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-glow page-glow-a"></div>
+    <div class="page-glow page-glow-b"></div>
+    <div class="page-glow page-glow-c"></div>
+
+    <header class="site-shell topbar">
+      <a class="brand" href="#top">
+        <span class="brand-mark">TL</span>
+        <span class="brand-copy">
+          <strong>The Language of Texture</strong>
+          <span>Curated finds</span>
+        </span>
+      </a>
+
+      <nav class="topnav" aria-label="Primary">
+        <a href="#sets">Sets</a>
+        <a href="#shop">Shop</a>
+      </nav>
+
+      <a class="button button-dark" href="#shop">Shop All</a>
+    </header>
+
+    <main id="top">
+      <section class="site-shell hero">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow">A softer way to shop</p>
+          <h1>The language of texture.</h1>
+          <p class="hero-text">
+            Beauty upgrades, cozy home layers, travel essentials, and elevated basics
+            pulled into a cleaner, prettier shopping experience.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-dark" href="#shop">Start Shopping</a>
+            <a class="button button-light" href="#sets">See Signature Sets</a>
+          </div>
+
+          <dl class="hero-stats">
+            <div>
+              <dt id="statProducts">0</dt>
+              <dd>product picks</dd>
+            </div>
+            <div>
+              <dt id="statCollections">0</dt>
+              <dd>curated collections</dd>
+            </div>
+            <div>
+              <dt id="statThemes">0</dt>
+              <dd>shopping moods</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-visual" data-reveal>
+          <div class="hero-panel">
+            <div class="hero-panel-head">
+              <span>Current favorites</span>
+              <strong>Useful things, beautifully chosen</strong>
+            </div>
+            <div class="hero-highlights" id="heroHighlights"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="site-shell intro-strip" data-reveal>
+        <div>
+          <p class="eyebrow">Why this format works</p>
+          <h2>Less endless scrolling. More styled combinations that make sense.</h2>
+        </div>
+        <p>
+          The site is organized like a curated shopping destination instead of a raw
+          list dump. You get signature sets, product filtering, and collection spotlights.
+        </p>
+      </section>
+
+      <section class="site-shell section-block" id="sets">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Signature Sets</p>
+          <h2>Pre-styled combinations for different moods and routines.</h2>
+          <p>
+            These are the "I want the whole vibe" groupings that make the page feel
+            fun instead of transactional.
+          </p>
+        </div>
+        <div class="bundle-grid" id="bundleGrid"></div>
+      </section>
+
+      <section class="site-shell section-block" id="shop">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Shop the Collection</p>
+          <h2>Browse by mood, category, or search term.</h2>
+          <p>
+            Filter the wall, mix it up, or jump straight into a full collection.
+          </p>
+        </div>
+
+        <div class="shop-controls" data-reveal>
+          <div class="theme-filters" id="themeFilters" aria-label="Theme filters"></div>
+
+          <div class="search-row">
+            <label class="search-field" for="searchInput">
+              <span>Search products, brands, or collections</span>
+              <input
+                id="searchInput"
+                type="search"
+                placeholder="Try: travel, tulips, lip balm, tank..."
+              />
+            </label>
+            <button class="button button-light" id="shuffleButton" type="button">
+              Mix the Wall
+            </button>
+          </div>
+
+          <p class="product-meta" id="productCount">0 picks showing</p>
+          <div class="collection-state" id="collectionState" hidden>
+            <span id="collectionStateLabel"></span>
+            <button class="link-button" id="clearCollectionButton" type="button">
+              Show all picks
+            </button>
+          </div>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+        <div class="load-more-wrap">
+          <button class="button button-light" id="loadMoreButton" type="button" hidden>
+            Load more
+          </button>
+        </div>
+      </section>
+
+      <section class="site-shell section-block" id="collections">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Collection Spotlights</p>
+          <h2>Collections with their own point of view.</h2>
+          <p>
+            These cards open the full source-inspired collection pages while keeping the
+            site organized around themes that feel intentional.
+          </p>
+        </div>
+        <div class="collection-grid" id="collectionGrid"></div>
+      </section>
+
+    </main>
+
+    <footer class="site-shell footer" data-reveal>
+      <div>
+        <strong>The Language of Texture</strong>
+        <p>
+          A polished collection of beauty, home, fashion, travel, and organization finds.
+        </p>
+      </div>
+      <div>
+        <strong>Made for discovery</strong>
+        <p>
+          Save what you love and come back whenever you need a little inspiration.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Use regular scripts so the catalogue also works when index.html is opened directly. -->
+    <script src="./data.js"></script>
+    <script defer src="./app.js"></script>
+  </body>
+</html>
