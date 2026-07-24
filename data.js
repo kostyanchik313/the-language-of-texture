@@ -553,7 +553,7 @@ const collections = [
         brand: "SUUKSESS",
         title: "Women's Padded Cotton Ribbed Tank for Easy Summer Styling",
         price: "$25.95",
-        image: "./assets/products/B0DQSR97R3.jpg",
+        image: "./B0DQSR97R3.jpg",
         href: "https://www.amazon.com/dp/B0DQSR97R3/ref=nosim?tag=emilycarte073-20"
       },
       {

@@ -133,7 +133,7 @@ function renderHeroHighlights() {
     .map(
       (product, index) => `
         <a class="hero-highlight" href="${safe(product.href)}" target="_blank" rel="noopener noreferrer sponsored">
-          <img src="${safe(product.image)}" alt="${safe(product.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='./assets/product-fallback.svg';" />
+          <img src="${safe(product.image)}" alt="${safe(product.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='./product-fallback.svg';" />
           <div>
             <span class="theme-tag">${safe(labels[index])}</span>
             <strong>${safe(product.title)}</strong>
@@ -161,7 +161,7 @@ function renderBundles() {
             ${products
               .map(
                 (product) => `
-                  <img src="${safe(product.image)}" alt="${safe(product.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='./assets/product-fallback.svg';" />
+                  <img src="${safe(product.image)}" alt="${safe(product.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='./product-fallback.svg';" />
                 `
               )
               .join("")}
@@ -220,7 +220,7 @@ function productCard(product) {
   return `
     <article class="product-card" data-reveal>
       <a class="product-card-image" href="${safe(product.href)}" target="_blank" rel="noopener noreferrer sponsored">
-        <img src="${safe(product.image)}" alt="${safe(product.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='./assets/product-fallback.svg';" />
+        <img src="${safe(product.image)}" alt="${safe(product.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='./product-fallback.svg';" />
       </a>
       <div class="product-topline">
         <span class="theme-tag">${safe(product.theme)}</span>
@@ -271,7 +271,7 @@ function renderCollections() {
             ${preview
               .map(
                 (item) => `
-                  <img src="${safe(item.image)}" alt="${safe(item.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='./assets/product-fallback.svg';" />
+                  <img src="${safe(item.image)}" alt="${safe(item.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='./product-fallback.svg';" />
                 `
               )
               .join("")}
