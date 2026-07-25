@@ -82,6 +82,45 @@ function safe(value) {
     .replaceAll('"', "&quot;");
 }
 
+function extractAmazonTag(url) {
+  if (!url || !url.includes("amazon.com")) return "";
+
+  try {
+    return new URL(url).searchParams.get("tag") || "";
+  } catch {
+    return "";
+  }
+}
+
+function buildAmazonSearchUrl(product) {
+  const query = [product.brand, product.title].filter(Boolean).join(" ").trim();
+  const searchUrl = new URL("https://www.amazon.com/s");
+  searchUrl.searchParams.set("k", query);
+
+  const tag = extractAmazonTag(product.href) || extractAmazonTag(product.collectionUrl);
+  if (tag) {
+    searchUrl.searchParams.set("tag", tag);
+  }
+
+  return searchUrl.toString();
+}
+
+function productLink(product) {
+  return buildAmazonSearchUrl(product);
+}
+
+function productHook(product) {
+  const hooksByTheme = {
+    Home: "Cozy upgrade for your space",
+    Beauty: "Little luxury for your routine",
+    Travel: "Smart find for your next trip",
+    Fashion: "Easy favorite for your look",
+    Organization: "Neat little fix you'll love"
+  };
+
+  return hooksByTheme[product.theme] || "Picked just for you";
+}
+
 function firstProductsByAsin(asins) {
   return asins.map((asin) => productLookup.get(asin)).filter(Boolean);
 }
@@ -132,12 +171,12 @@ function renderHeroHighlights() {
   refs.heroHighlights.innerHTML = firstProductsByAsin(highlightAsins)
     .map(
       (product, index) => `
-        <a class="hero-highlight" href="${safe(product.href)}" target="_blank" rel="noopener noreferrer sponsored">
+        <a class="hero-highlight" href="${safe(productLink(product))}" target="_blank" rel="noopener noreferrer sponsored">
           <img src="${safe(product.image)}" alt="${safe(product.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='./product-fallback.svg';" />
           <div>
             <span class="theme-tag">${safe(labels[index])}</span>
             <strong>${safe(product.title)}</strong>
-            <p>${safe(product.brand)} | ${safe(product.price)}</p>
+            <p>${safe(product.brand)} | ${safe(productHook(product))}</p>
           </div>
         </a>
       `
@@ -174,9 +213,9 @@ function renderBundles() {
               .map(
                 (product) => `
                   <li>
-                    <a href="${safe(product.href)}" target="_blank" rel="noopener noreferrer sponsored">
+                    <a href="${safe(productLink(product))}" target="_blank" rel="noopener noreferrer sponsored">
                       <span>${safe(product.brand)} | ${safe(product.title)}</span>
-                      <strong>${safe(product.price)}</strong>
+                      <strong>${safe(productHook(product))}</strong>
                     </a>
                   </li>
                 `
@@ -184,7 +223,7 @@ function renderBundles() {
               .join("")}
           </ul>
           <div class="bundle-actions">
-            <a class="button button-dark" href="${safe(lead.href)}" target="_blank" rel="noopener noreferrer sponsored">
+            <a class="button button-dark" href="${safe(productLink(lead))}" target="_blank" rel="noopener noreferrer sponsored">
               Shop hero item
             </a>
             <button class="link-button" type="button" data-jump-theme="${safe(bundle.theme)}">
@@ -218,10 +257,10 @@ function renderThemeFilters() {
 
 function productCard(product) {
   return `
-    <article class="product-card" data-reveal>
-      <a class="product-card-image" href="${safe(product.href)}" target="_blank" rel="noopener noreferrer sponsored">
+    <a class="product-card" href="${safe(productLink(product))}" target="_blank" rel="noopener noreferrer sponsored" data-reveal>
+      <div class="product-card-image">
         <img src="${safe(product.image)}" alt="${safe(product.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='./product-fallback.svg';" />
-      </a>
+      </div>
       <div class="product-topline">
         <span class="theme-tag">${safe(product.theme)}</span>
         <span class="collection-chip">${safe(product.collectionLabel)}</span>
@@ -229,13 +268,13 @@ function productCard(product) {
       <p class="product-brand">${safe(product.brand)}</p>
       <h3>${safe(product.title)}</h3>
       <p>${safe(product.source)}</p>
-      <p class="product-price">${safe(product.price)}</p>
+      <p class="product-price">${safe(productHook(product))}</p>
       <div class="product-actions">
-        <a class="button button-dark" href="${safe(product.href)}" target="_blank" rel="noopener noreferrer sponsored">
+        <span class="button button-dark">
           Shop now
-        </a>
+        </span>
       </div>
-    </article>
+    </a>
   `;
 }
 

@@ -447,7 +447,7 @@ const collections = [
         brand: "SATINIOR",
         title: "Microfiber Hair Towel Wrap Set for Faster Drying and Less Frizz",
         price: "$9.99",
-        image: "https://m.media-amazon.com/images/I/71CKzEUm3oL._AC_SX679_.jpg",
+        image: "https://m.media-amazon.com/images/I/71FWVX14myL._AC_UL320_.jpg",
         href: "https://www.amazon.com/dp/B0CTFSW3Z4/ref=nosim?tag=emilycarte073-20"
       },
       {
@@ -553,7 +553,7 @@ const collections = [
         brand: "SUUKSESS",
         title: "Women's Padded Cotton Ribbed Tank for Easy Summer Styling",
         price: "$25.95",
-        image: "./B0DQSR97R3.jpg",
+        image: "https://m.media-amazon.com/images/I/711akzaCx2L._AC_UL320_.jpg",
         href: "https://www.amazon.com/dp/B0DQSR97R3/ref=nosim?tag=emilycarte073-20"
       },
       {

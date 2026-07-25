@@ -647,6 +647,11 @@ code {
   border-radius: 24px;
 }
 
+.product-card {
+  color: inherit;
+  text-decoration: none;
+}
+
 .product-card-image {
   aspect-ratio: 1 / 1.06;
   border-radius: 20px;
